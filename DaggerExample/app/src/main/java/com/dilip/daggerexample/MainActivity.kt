@@ -14,9 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = DaggerUserRegistrationComponent.builder().build()
-        component.inject(this)
+        val component = DaggerUserRegistrationComponent.factory().create(3)
 
+
+        component.inject(this)
         userRegistrationService.registerUser("aaa@gmail.com", "1234")
 //        emailService.send("aaa@gmail.com", "owner@gmail.com", "Thank you for Registration")
 
