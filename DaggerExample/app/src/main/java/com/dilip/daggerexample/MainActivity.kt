@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = (application as UserApplication).userRegistrationComponent
+        val appComponent = (application as UserApplication).userRegistrationComponent
 
         component.inject(this)
-        userRegistrationService.registerUser("aaa@gmail.com", "1234")
+//        userRegistrationService.registerUser("aaa@gmail.com", "1234")
 //        emailService.send("aaa@gmail.com", "owner@gmail.com", "Thank you for Registration")
 
     }
