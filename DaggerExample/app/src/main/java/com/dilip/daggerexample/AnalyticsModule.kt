@@ -9,7 +9,8 @@ class AnalyticsModule {
 
     @Singleton
     @Provides
-    fun getAnalyticsService() : AnalyticsService {
+    fun getAnalyticsService() : AnalyticsService{
         return Mixpanel()
     }
+
 }

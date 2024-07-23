@@ -3,7 +3,6 @@ package com.dilip.daggerexample
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
 class NotificationServiceModule() {
@@ -11,13 +10,13 @@ class NotificationServiceModule() {
     @ActivityScope
     @MessageQualifier
     @Provides
-    fun getMessageService(retryCount : Int) : NotificationService {
-        return MessageService(retryCount)
+    fun getMessageService(): NotificationService {
+        return MessageService(3)
     }
 
     @Named("email")
     @Provides
-    fun getEmailService() : NotificationService {
-        return EmailService()
+    fun getEmailService(emailService: EmailService): NotificationService {
+        return emailService
     }
 }

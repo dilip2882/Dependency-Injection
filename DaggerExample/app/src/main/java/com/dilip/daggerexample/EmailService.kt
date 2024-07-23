@@ -2,23 +2,20 @@ package com.dilip.daggerexample
 
 import android.util.Log
 import javax.inject.Inject
-import javax.inject.Singleton
 
-interface NotificationService {
+interface NotificationService{
     fun send(to: String, from: String, body: String?)
 }
 
-@ApplicationScope
+@ActivityScope
 class EmailService @Inject constructor() : NotificationService {
-
     override fun send(to: String, from: String, body: String?) {
-        Log.d("TAG", "Email Sent")
+        Log.d(TAG, "Email Sent")
     }
 }
 
-class MessageService(private val retryCount: Int) : NotificationService {
+class MessageService(private val retryCount: Int) : NotificationService{
     override fun send(to: String, from: String, body: String?) {
-        Log.d("TAG", "Message Sent - Retry Count $retryCount")
+        Log.d(TAG, "Message Sent - Retry Count $retryCount")
     }
-
 }

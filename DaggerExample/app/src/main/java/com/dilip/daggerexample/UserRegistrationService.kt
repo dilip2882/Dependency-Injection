@@ -4,17 +4,21 @@ import javax.inject.Inject
 
 class UserRegistrationService @Inject constructor(
     private val userRepository: UserRepository,
-    @MessageQualifier private val notificationService: NotificationService) {
+    @MessageQualifier private val notificationService: NotificationService
+) {
 
     fun registerUser(email: String, password: String) {
         userRepository.saveUser(email, password)
-        notificationService.send(email, "abc@gmail.com", "User registered")
+        notificationService.send(email, "no-reply@cheezycode.com", "User Registered")
     }
+
 }
 
-/*
-Unit testing
-Single responsibility
-Lifetime of these objects
-Extensible
-*/
+
+
+
+
+
+
+
+

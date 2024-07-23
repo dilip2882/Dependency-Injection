@@ -1,21 +1,19 @@
 package com.dilip.daggerexample
 
-import android.content.ContentValues.TAG
 import android.util.Log
 
 interface AnalyticsService {
     fun trackEvent(eventName: String, eventType: String)
 }
 
-class Mixpanel : AnalyticsService {
+class Mixpanel : AnalyticsService{
     override fun trackEvent(eventName: String, eventType: String) {
         Log.d(TAG, "Mixpanel - $eventName - $eventType")
     }
 }
 
-class FirebaseAnalytics : AnalyticsService {
+class FirebaseAnalytics : AnalyticsService{
     override fun trackEvent(eventName: String, eventType: String) {
         Log.d(TAG, "FirebaseAnalytics - $eventName - $eventType")
-
     }
 }

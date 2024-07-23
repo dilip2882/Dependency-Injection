@@ -1,20 +1,17 @@
 package com.dilip.daggerexample
 
 import dagger.BindsInstance
-import dagger.Component
-import javax.inject.Singleton
+import dagger.Subcomponent
 
 @ActivityScope
-@Component(dependencies = [AppComponent::class], modules = [UserRepositoryModule::class, NotificationServiceModule::class])
+@Subcomponent(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    fun getEmailService() : EmailService
-
-    @Component.Factory
+    @Subcomponent.Factory
     interface Factory {
-        fun create(@BindsInstance retryCount: Int, appComponent: AppComponent) : UserRegistrationComponent
-
+        fun create(@BindsInstance retryCount: Int): UserRegistrationComponent
     }
+
 }
