@@ -1,16 +1,14 @@
 package com.dilip.hiltexample
 
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 
 @InstallIn(FragmentComponent::class)
 @Module
-class UserModule {
+abstract class UserModule {
 
-    @Provides
-    fun providesUserRepository(): UserRepository {
-        return FirebaseRepository()
-    }
+    @Binds
+    abstract fun bindsUserRepository(sqlRepository: SQLRepository): UserRepository
 }
